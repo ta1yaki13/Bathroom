@@ -17,15 +17,43 @@ typedef struct {
 } Gravity;
 
 
-/* --- Enter_The_Bathroom Function --- */
-void Enter_The_Bathroom(void)                   /* --- Ask someone for their name when they enter the bathroom.　（誰かが、トイレに入ったときに名前を尋ねる） --- */
-{
+/* --- Enter_The_Earth_Bathroom Function --- */
+void Enter_The_Earth_Bathroom(void)                   /* Ask someone for their name when they enter the bathroom. */
+{                                                     /* （誰かが、トイレに入ったときに名前を尋ねる)                     */
     Humankind human ;
 
+    puts("Welcome!! Earth bathroom.");
+    puts(" ");
     puts("Who came to the bathroom?");
     printf("Name : ");
     scanf("%s", human.name);
-    printf("Welcome! %s.\n", human.name);
+    printf("Hi! %s.\n", human.name);
+}
+
+/* --- Enter_The_Moon_Bathroom Function --- */
+void Enter_The_Moon_Bathroom(void)                   /* Ask someone for their name when they enter the bathroom. */
+{                                                    /* （誰かが、トイレに入ったときに名前を尋ねる)                     */
+    Humankind human ;
+
+    puts("Welcome!! Moon bathroom.");
+    puts(" ");
+    puts("Who came to the bathroom?");
+    printf("Name : ");
+    scanf("%s", human.name);
+    printf("Hi! %s.\n", human.name);
+}
+
+/* --- Enter_The_Iss_Bathroom Function --- */
+void Enter_The_Iss_Bathroom(void)                   /* Ask someone for their name when they enter the bathroom. */
+{                                                    /* （誰かが、トイレに入ったときに名前を尋ねる)                     */
+    Humankind human ;
+
+    puts("Welcome!! Iss bathroom.");
+    puts(" ");
+    puts("Who came to the bathroom?");
+    printf("Name : ");
+    scanf("%s", human.name);
+    printf("Hi! %s.\n", human.name);
 }
 
 /* --- Prepare Bathroom Function --- */
@@ -79,18 +107,47 @@ void Finish_Bathroom(void)
 /* --- Earth Bathroom Function --- */
 void Earth_Bathroom(void)
 {
-    Enter_The_Bathroom();
+    Enter_The_Earth_Bathroom();
     Prepare_Bathroom();
     Finish_Bathroom();
 }
 
 
+/* --- Moon Bathroom Function --- */
+void Moon_Bathroom(void)
+{
+    Enter_The_Moon_Bathroom();
+    Prepare_Bathroom();
+    Finish_Bathroom();
+}
+
+/* --- Iss Bathroom Function --- */
+void Iss_Bathroom(void)
+{
+    Enter_The_Iss_Bathroom();
+    Prepare_Bathroom();
+    Finish_Bathroom();
+}
+
+
+
 /* --- main Function --- */
 int main(void)
 {
+    int emi = 0;
+
     Humankind human;
 
-    Earth_Bathroom();
+    printf("Where is the Bathroom here? <Earth = 0, Moon = 1, ISS = 2> : ");
+    scanf("%d", &emi);
+
+    if (emi == 0) {
+        Earth_Bathroom();
+    } else if (emi == 1) {
+        Moon_Bathroom();
+    } else if (emi == 2) {
+        Iss_Bathroom();
+    }
 
     return 0;
 }
